@@ -1,6 +1,6 @@
 ﻿namespace QuickBuy.Dominio.Entidades
 {
-    class ItemPedido : Entidade
+    public class ItemPedido : Entidade
 
     {
         public int Id { get; set; }
