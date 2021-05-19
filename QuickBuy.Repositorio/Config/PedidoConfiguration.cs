@@ -31,9 +31,7 @@ namespace QuickBuy.Repositorio.Config
             builder.Property(p => p.EnderecoCompleto)
                 .IsRequired();
 
-            //builder.Property(p => p.FormaPagamentoId);
-            //builder.Property(p => p.FormaPagmaento);
-            //builder.Property(p => p.ItensPedido)
+
         }
     }
 }
