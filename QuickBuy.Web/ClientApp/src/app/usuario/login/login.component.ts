@@ -1,4 +1,5 @@
 import { Component } from "@angular/core"
+import { Usuario } from "../../modelo/usuario";
 
 @Component({
   selector: "app-login",
@@ -6,8 +7,14 @@ import { Component } from "@angular/core"
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent {
-  public email = "";
+  public usuario;
+
+  constructor() {
+    this.usuario = new Usuario();
+  }
+
+
   entrar() {
-    alert(this.email);
+    alert(this.usuario.email);
   }
 }
