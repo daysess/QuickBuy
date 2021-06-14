@@ -30,7 +30,7 @@
     </div>
 
     <button class="btn btn-primary btn-block mb-2" type="submit" (click)="entrar()">Entrar</button>
-
+    <div class="alert alert-danger" *ngIf="mensagem">{{mensagem}}</div>
     <img src="../assets/img/coruja.png" title="coruja linda" height="40%" width="40%" />
 
   </form>
