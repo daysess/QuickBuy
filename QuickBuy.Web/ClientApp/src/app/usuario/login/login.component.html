@@ -33,6 +33,7 @@
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
       Entrar
     </button>
+    <div>Novo por aqui? <a [routerLink]='["/novo-usuario"]'>cadastre-se</a></div>
     <div class="alert alert-danger" *ngIf="mensagem">{{mensagem}}</div>
     <img src="../assets/img/coruja.png" title="coruja linda" height="40%" width="40%" />
 

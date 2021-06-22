@@ -23,6 +23,10 @@ export class UsuarioServico {
     this._usuario = usuario;
   }
 
+  get header(): HttpHeaders {
+    return new HttpHeaders().set('content-type', 'application/json');
+  }
+
   public usuario_autenticado(): boolean {
     return this._usuario != null && this._usuario.email != "" && this._usuario.senha != "";
 
@@ -46,6 +50,19 @@ export class UsuarioServico {
     }
 
     return this.http.post<Usuario>(this.baseURL + "api/usuario/verificarUsuario", body, { headers });
+  }
+
+  public cadastrarUsuario(usuario: Usuario): Observable<Usuario> {
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+
+    var body = {
+      email: usuario.email,
+      senha: usuario.senha,
+      nome: usuario.nome,
+      sobreNome: usuario.sobreNome
+    }
+
+    return this.http.post<Usuario>(this.baseURL + "api/usuario", body, { headers });
   }
 
 
