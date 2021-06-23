@@ -4,8 +4,8 @@ import { ProdutoServico } from "../servicos/produto/produto.servico";
 
 @Component({
   selector: "produto",
-  templateUrl: "./produto/produto.component.html",
-  styleUrls: ["./produto/produto.component.css"]
+  templateUrl: "./produto.component.html",
+  styleUrls: ["./produto.component.css"]
 })
 export class ProdutoComponent implements OnInit {
   
@@ -24,10 +24,10 @@ export class ProdutoComponent implements OnInit {
     this.produtoServico.cadastrar(this.produto)
       .subscribe(
         produtoJson => {
-          console.log(produtoJson);
+          //console.log(produtoJson);
         },
         e => {
-          console.log(e.error);
+          //console.log(e.error);
         }
       );
   }

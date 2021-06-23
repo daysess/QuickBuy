@@ -1,10 +1,22 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+<h1 class="h4">Cadastro de produtos</h1>
+<label for="inputNoame" class="sr-only">Nome</label>
+<input type="text" class="form-control mb-2 col-md-4"
+       id="inputNome" name="nomeProduto" placeholder="Nome do produto" required
+       [(ngModel)]="produto.nome" #nome="ngModel" />
 
-</body>
-</html>
+<label for="inputDescricao" class="sr-only">Descrição</label>
+<input type="text" class="form-control mb-2 col-md-4"
+       id="inputDescricao" name="descricaoProduto" placeholder="Descrição do produto" required
+       [(ngModel)]="produto.descricao" #descricao="ngModel" />
+
+<label for="inputPreco" class="sr-only">Preço</label>
+<input type="number" id="inputPreco" name="precoProduto" class="form-control mb-2 col-md-4"
+       placeholder="Preço" required
+       [(ngModel)]="produto.preco" #preco="ngModel"/>
+
+<div class="input-group">
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputFile">
+    <label for="inputFile" class="custom-file-label mb-2 col-md-4">Escolha uma foto para o produto</label>
+  </div>  
+</div>
