@@ -26,7 +26,7 @@ namespace QuickBuy.Dominio.Entidades
         // Um pedido deve ter um item de pedido ou muitos itens de pedido.
         public virtual ICollection<ItemPedido> ItensPedido { get; set; }
 
-        public override void Validady()
+        public override void Validate()
         {
             LimparMensagensValidacao();
 

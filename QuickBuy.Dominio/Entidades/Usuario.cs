@@ -14,7 +14,7 @@ namespace QuickBuy.Dominio.Entidades
         // Usuarios pode ter nenhum ou muitos pedidos
         public virtual ICollection<Pedido>  Pedidos { get; set; }
 
-        public override void Validady()
+        public override void Validate()
         {
             if (string.IsNullOrEmpty(Email))
             {

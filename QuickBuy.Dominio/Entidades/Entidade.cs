@@ -11,9 +11,14 @@ namespace QuickBuy.Dominio.Entidades
             get { return _mensagensValidacao ?? (_mensagensValidacao = new List<string>()); }
         }
 
-        public abstract void Validady();
+        public string ObterMensagemValidacao()
+        {
+            return string.Join(". ", MensagemValidacao);
+        }
 
-        protected bool EhValido {
+        public abstract void Validate();
+
+        public bool EhValido {
             get { return !MensagemValidacao.Any(); }
         }
 
@@ -26,5 +31,7 @@ namespace QuickBuy.Dominio.Entidades
         {
             MensagemValidacao.Add(mensagem);
         }
+
+
     }
 }
