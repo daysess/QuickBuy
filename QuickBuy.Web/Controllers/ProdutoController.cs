@@ -29,7 +29,7 @@ namespace QuickBuy.Web.Controllers
         public IActionResult Get()
         {
             try {
-                return Ok(_produtoRepositorio.ObterTodos());
+                return Json(_produtoRepositorio.ObterTodos());
             } catch(Exception ex)
             {
                 return BadRequest(ex.Message);
@@ -63,22 +63,30 @@ namespace QuickBuy.Web.Controllers
                 var formFile = _httpContextAcessor.HttpContext.Request.Form.Files["arquivoEnviado"];
                 var nomeArquivo = formFile.FileName;
                 var extensao = nomeArquivo.Split(".").Last();
-                var arrayNomeCompacto = Path.GetFileNameWithoutExtension(nomeArquivo).Take(5).ToArray();
-                var novoNomeArquivo = new string(arrayNomeCompacto).Replace(" ", "-");// + "." + extensao;
-                novoNomeArquivo = $"{novoNomeArquivo}_{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}{DateTime.Now.Hour}{DateTime.Now.Minute}.{extensao}";
-                var pastaArquivo = _hostingEnvironment.WebRootPath + "\\arquivos\\";
-                var nomeCompleto = pastaArquivo + novoNomeArquivo;
+                string novoNomeArquivo = GerarNovoNomeArquivo(nomeArquivo, extensao);
+                var pastaArquivos = _hostingEnvironment.WebRootPath + "\\arquivos\\";
+                var nomeCompleto = pastaArquivos + novoNomeArquivo;
 
-                using(var streamArquivo = new FileStream(nomeCompleto, FileMode.Create))
+                using (var streamArquivo = new FileStream(nomeCompleto, FileMode.Create))
                 {
                     formFile.CopyTo(streamArquivo);
                 }
-                return Ok("Arquivo enviado com sucesso");
 
-            }catch(Exception ex)
+                return Json(novoNomeArquivo);
+
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.ToString());
             }
+        }
+
+        private static string GerarNovoNomeArquivo(string nomeArquivo, string extensao)
+        {
+            var arrayNomeCompacto = Path.GetFileNameWithoutExtension(nomeArquivo).Take(10).ToArray();
+            var novoNomeArquivo = new string(arrayNomeCompacto).Replace(" ", "-");
+            novoNomeArquivo = $"{novoNomeArquivo}_{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}{DateTime.Now.Hour}{DateTime.Now.Minute}{DateTime.Now.Second}.{extensao}";
+            return novoNomeArquivo;
         }
 
     }

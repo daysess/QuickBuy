@@ -16,15 +16,15 @@ namespace QuickBuy.Dominio.Entidades
         {
             if (string.IsNullOrEmpty(Nome))
             {
-                AdicionarCritica("Informe o nome do produto.");
+                AdicionarCritica("Informe o nome do produto");
             }
             if (string.IsNullOrEmpty(Descricao))
             {
-                AdicionarCritica("Informe uma breve descrição referente ao produto.");
+                AdicionarCritica("Informe uma breve descrição referente ao produto");
             }
             if (Preco <= 0)
             {
-                AdicionarCritica("Informe um preço válido do produto.");
+                AdicionarCritica("Informe um preço válido do produto");
             }
         }
     }

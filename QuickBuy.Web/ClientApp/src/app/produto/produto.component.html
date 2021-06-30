@@ -50,10 +50,14 @@
 
 <div class="input-group mb-2">
   <div class="custom-file col-md-4">
-    <input type="file" class="custom-file-input" id="inputFile" (change)="inputChange($event.target.files)" />
-    <label for="inputFile" class="custom-file-label">Escolha uma foto para o produto</label>
+    <input type="file"
+           class="custom-file-input"
+           id="inputFile" name="inputFile"
+           (change)="inputChange($event.target.files)" />
+    <label for="inputFile" class="custom-file-label">Escolha uma foto</label>
   </div>  
 </div>
+
 
 <button type="button" class="btn btn-primary mb-2" (click)="cadastrar()" [disabled]="ativar_spinner">
   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>

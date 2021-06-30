@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Produto } from "../../modelo/produto";
 
+
 @Injectable({
   providedIn: "root"
 })
@@ -35,7 +36,8 @@ export class ProdutoServico implements OnInit {
         var body = {
           nome: produto.nome,
           descricao: produto.descricao,
-          preco: produto.preco
+          preco: produto.preco,
+          nomeArquivo: produto.nomeArquivo
         }
 
       return this.http.post<Produto>(this._baseUrl + "api/produto/salvar", JSON.stringify(produto), { headers: this.headers });
@@ -66,5 +68,6 @@ export class ProdutoServico implements OnInit {
     formData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name);
     return this.http.post<string>(this._baseUrl + "api/produto/enviarArquivo", formData);
   }
+
 
 }

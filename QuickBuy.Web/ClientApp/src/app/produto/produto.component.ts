@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit } from "@angular/core";
 import { Produto } from "../modelo/produto";
 import { ProdutoServico } from "../servicos/produto/produto.servico";
+
 
 @Component({
   selector: "produto",
@@ -54,6 +55,8 @@ export class ProdutoComponent implements OnInit {
         }
       );
   }
+
+
 
   public ativarEspera() {
     this.ativar_spinner = true;
